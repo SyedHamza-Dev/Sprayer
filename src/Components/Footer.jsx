@@ -21,33 +21,42 @@ export default function Footer() {
           <Typography sx={{ fontSize: '14px', mb: 3, color: 'rgba(255,255,255,0.7)' }}>
             Get first access to new collections
           </Typography>
-          <TextField
-            placeholder="Your email"
-            variant="outlined"
-            size="small"
+          <Box
             sx={{
-              backgroundColor: '#fff',
-              borderRadius: '30px',
+              display: 'flex',
               width: '100%',
-              maxWidth: '280px',
-              '& .MuiOutlinedInput-root': { borderRadius: '30px' },
-            }}
-          />
-          <Button
-            variant="contained"
-            sx={{
-              mt: 2,
-              backgroundColor: '#E8C9A0',
-              color: '#1a1a1a',
-              borderRadius: '30px',
-              width: '100%',
-              maxWidth: '200px',
-              fontWeight: 600,
-              '&:hover': { backgroundColor: '#D9B88A' },
+              maxWidth: '360px',
+              mx: 'auto',
+              gap: 1,
             }}
           >
-            SUBSCRIBE
-          </Button>
+            <TextField
+              placeholder="Your email"
+              variant="outlined"
+              size="small"
+              sx={{
+                backgroundColor: '#fff',
+                borderRadius: '30px',
+                flex: 1,
+                minWidth: 0,
+                '& .MuiOutlinedInput-root': { borderRadius: '30px' },
+              }}
+            />
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: '#E8C9A0',
+                color: '#1a1a1a',
+                borderRadius: '30px',
+                px: 3,
+                fontWeight: 600,
+                whiteSpace: 'nowrap',
+                '&:hover': { backgroundColor: '#D9B88A' },
+              }}
+            >
+              SUBSCRIBE
+            </Button>
+          </Box>
         </Grid>
 
         <Grid item xs={12} sm={3} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
