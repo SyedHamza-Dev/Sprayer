@@ -15,7 +15,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
-const NAV_LINKS = ['Home', 'Shop', 'About', 'Contact'];
+const NAV_LINKS = [
+  { label: 'Home', to: '/' },
+  { label: 'Shop', to: '/shop' },
+  { label: 'About', to: '/about' },
+  { label: 'Contact', to: '/contact' },
+];
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -53,11 +58,11 @@ const Navbar = () => {
         </Typography>
 
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 1 }}>
-          {NAV_LINKS.map((label) => (
+          {NAV_LINKS.map((item) => (
             <Button
-              key={label}
-              component={label === 'Home' ? Link : 'button'}
-              to={label === 'Home' ? '/' : undefined}
+              key={item.label}
+              component={Link}
+              to={item.to}
               sx={{
                 fontSize: '15px',
                 color: '#4a4a4a',
@@ -65,7 +70,7 @@ const Navbar = () => {
                 '&:hover': { color: '#A87B56', backgroundColor: 'transparent' },
               }}
             >
-              {label}
+              {item.label}
             </Button>
           ))}
         </Box>
@@ -91,9 +96,9 @@ const Navbar = () => {
       </Toolbar>
 
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={closeMenu}>
-        {NAV_LINKS.map((label) => (
-          <MenuItem key={label} onClick={closeMenu}>
-            {label}
+        {NAV_LINKS.map((item) => (
+          <MenuItem key={item.label} component={Link} to={item.to} onClick={closeMenu}>
+            {item.label}
           </MenuItem>
         ))}
       </Menu>

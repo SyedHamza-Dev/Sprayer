@@ -14,7 +14,7 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { useState } from 'react';
 import { products, featuredProductIds } from '../data/products';
 import { useCart } from '../context/CartContext';
-import heroImage from '../assets/products/hero-golden-droplets.jpg';
+import heroImage from '../assets/products/hero-clean-minimal.jpg';
 
 const Home = () => {
   const { addItem } = useCart();
