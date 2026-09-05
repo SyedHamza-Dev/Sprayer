@@ -14,7 +14,7 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { useState } from 'react';
 import { products, featuredProductIds } from '../data/products';
 import { useCart } from '../context/CartContext';
-import heroImage from '../assets/products/product-crystal-dark.jpg';
+import heroImage from '../assets/products/hero-editorial-rocks.jpg';
 
 const Home = () => {
   const { addItem } = useCart();
@@ -34,21 +34,35 @@ const Home = () => {
       {/* Hero */}
       <Box
         sx={{
-          backgroundColor: '#211d1a',
+          position: 'relative',
+          minHeight: { xs: '80vh', md: '85vh' },
           display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
-          minHeight: { xs: 'auto', md: '80vh' },
+          overflow: 'hidden',
         }}
       >
         <Box
+          component="img"
+          src={heroImage}
+          alt=""
           sx={{
-            flex: 1,
-            px: { xs: 4, md: 10 },
-            py: { xs: 8, md: 0 },
-            maxWidth: { md: '560px' },
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'right center',
           }}
-        >
+        />
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(90deg, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.6) 40%, rgba(15,15,15,0.1) 75%)',
+          }}
+        />
+        <Box sx={{ position: 'relative', zIndex: 1, px: { xs: 4, md: 10 }, py: { xs: 6, md: 0 }, maxWidth: '600px' }}>
           <Typography
             sx={{ color: '#E8C9A0', letterSpacing: '0.2em', fontSize: '13px', fontWeight: 600, mb: 2 }}
           >
@@ -66,7 +80,7 @@ const Home = () => {
           >
             A scent for every story
           </Typography>
-          <Typography sx={{ color: 'rgba(255,255,255,0.75)', fontSize: '17px', mb: 4, maxWidth: '460px' }}>
+          <Typography sx={{ color: 'rgba(255,255,255,0.85)', fontSize: '17px', mb: 4, maxWidth: '460px' }}>
             Crafted fragrances built on rare notes and honest ingredients. Find the one that feels
             like you.
           </Typography>
@@ -87,30 +101,6 @@ const Home = () => {
           >
             Shop the Collection
           </Button>
-        </Box>
-
-        <Box
-          sx={{
-            flex: 1,
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            p: { xs: 4, md: 6 },
-          }}
-        >
-          <Box
-            component="img"
-            src={heroImage}
-            alt="Featured fragrance bottle"
-            sx={{
-              width: '100%',
-              maxWidth: '460px',
-              height: 'auto',
-              borderRadius: '12px',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.4)',
-            }}
-          />
         </Box>
       </Box>
 
